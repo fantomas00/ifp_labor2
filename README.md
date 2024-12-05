@@ -48,7 +48,7 @@ CL-USER> (list-set-difference '(1 2 3 4) '(4 5 6) '(2 5 7))
 
 ```lisp
 (defun test-remove-thirds-and-reverse ()
-    (check-remove-thirds-and-reverse "Empty list" '() :expected '())
+    (check-remove-thirds-and-reverse "list from instr" '(a b c d e f g) :expected '(G E D B A))
     (check-remove-thirds-and-reverse "List without threes" '(1 2) :expected '(2 1))
     (check-remove-thirds-and-reverse "List with last element removed" '(1 2 3 4 5 6) :expected '(5 4 2 1))
     (check-remove-thirds-and-reverse "List with last element not removed" '(1 2 3 4 5 6 7) :expected '(7 5 4 2 1)))
@@ -56,7 +56,7 @@ CL-USER> (list-set-difference '(1 2 3 4) '(4 5 6) '(2 5 7))
 
 ```lisp
 CL-USER> (test-remove-thirds-and-reverse)
-passed... Empty list
+passed... list from instr
 passed... List without threes
 passed... List with last element removed
 passed... List with last element not removed
@@ -78,7 +78,7 @@ passed... List with last element not removed
 
 ```lisp
 (defun test-list-set-difference ()
-    (check-list-set-difference "Regular input" '(1 2 3 4 5) '(2 4) '(4 5) :expected '(1 3))
+    (check-list-set-difference "Regular input" '(1 2 3 4) '(4 5 6) '(2 5 7) :expected '(1 3))
     (check-list-set-difference "All empty" '() '() '() :expected '())
     (check-list-set-difference "Empty subtrahends" '(5 6 7 8) '() '() :expected '(5 6 7 8))
     (check-list-set-difference "All unique" '(9 0 4 5) '(1 2) '(3) :expected '(9 0 4 5))
